@@ -6,6 +6,20 @@ class Baraja {
         this.cartas = [];
         const palos = ["corazones", "diamantes", "tréboles", "picas"];
         const valores = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        
+        let cartas = [];
+        palos.forEach(function(palo) {
+            valores.forEach(function(valor) {
+                
+                
+                this.cartas.push(new Carta(palo, valor) );
+
+            })
+            
+        }) 
+
+            
+        
         /*
         * TODO: Crear crear una carta de cada palo y valor y guardarla en la baraja
         */
