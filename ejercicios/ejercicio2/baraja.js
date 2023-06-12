@@ -12,13 +12,12 @@ class Baraja {
             valores.forEach(function(valor) {
                 
                 
-                this.cartas.push(new Carta(palo, valor) );
+                cartas.push(new Carta(palo, valor) );
 
             })
             
-        }) 
-
-            
+        })
+        this.cartas = cartas;     
         
         /*
         * TODO: Crear crear una carta de cada palo y valor y guardarla en la baraja
@@ -26,28 +25,42 @@ class Baraja {
     }
   
     mezclar() {
+        for (let i = this.cartas.length - 1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i+1));
+
+
+            let temp = this.cartas[i];
+            this.cartas[i] = this.cartas[j];
+            this.cartas[j] = temp;
+
+
+            // esto es lo mismo que lo de arriba
+           // [this.cartas[i]], [this.cartas[j]] = [this.cartas[j]], [this.cartas[i]];
+
+        }
+     }
         /* 
         * TODO: Mezclar las cartas de la baraja
         * SUGERENCIA DE LECTURA: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
         * SUGERENCIA DE LECTURA: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
         * No devuelve nada
         */
-    }
+    
   
     sacarCarta() {
         /*
         * TODO: Sacar una carta de la baraja
         * se debe sacar la última carta de la baraja y devolverla
         */
-       return new Carta("corazones", "A");
+       return this.cartas.pop();
     }
-  }
+   }
 
-    export default Baraja;
+ export default Baraja;
   
     if (process.argv[1] === fileURLToPath(import.meta.url)) {
         let baraja = new Baraja();
         baraja.mezclar();
         console.log(baraja.cartas);
         console.log(baraja.sacarCarta());
-    }
+    } 

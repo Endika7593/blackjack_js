@@ -17,24 +17,22 @@ class Carta {
        if (this.valor >= 2 && this.valor <= 10) {
         return parseInt(this.valor);
 
-        }else if (['J', 'Q', 'K'].includes(this.valor)){
+        } else if (['J', 'Q', 'K'].includes(this.valor)){
         return 10;
 
-        }else if (this.valor === 'A'){
+        } else if (this.valor === 'A'){
         return 11;
-        }else{
-       return 0;
+        } else {
+        return 0;
    
         }
-    }
-
-  
+    } 
 }
 
 export default Carta;
 
 
-
+/*
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     let carta = new Carta("corazones", "A");
     console.log(carta.getValor());
@@ -42,7 +40,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(carta.getValor());
     carta = new Carta("corazones", "2");
     console.log(carta.getValor());
-}
+} */
 
 //--------------------------------------------------------//
 
